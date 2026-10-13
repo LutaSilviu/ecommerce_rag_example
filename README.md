@@ -34,6 +34,21 @@ python -m uvicorn app.main:app --reload
 
 Open <http://localhost:8000>. The default SQLite database is `data/nexo-market.db`. Stop the server with Ctrl+C.
 
+## Deploy a free demo on Render
+
+The repository includes a Render Blueprint in [`render.yaml`](./render.yaml).
+In Render, create a new Blueprint Instance, connect this GitHub repository, and
+apply the Blueprint. Render creates a free web service in Frankfurt and asks
+for `OPENAI_API_KEY`; enter the key as a secret in Render, never in this file.
+The generated service URL is used automatically as `APP_BASE_URL`, so the
+Google callback becomes `<service-url>/api/v1/auth/google/callback`.
+
+This free demo uses SQLite on Render's temporary filesystem. Accounts, orders,
+and catalog changes can be lost when the service restarts, redeploys, or sleeps.
+The free web service also sleeps after 15 minutes without traffic. Before
+enabling Google sign-in, add the Render service URL as an authorized origin and
+its callback URL as an authorized redirect URI in the Google OAuth client.
+
 Settings are read from process environment variables; the app does **not** automatically load `.env`. `.env.example` is a reference template. Set values in your shell or use your own environment loader. See [CONFIGURATION.md](./CONFIGURATION.md) for the complete settings contract and Google OAuth setup.
 
 For bash/zsh, the equivalent setup is:

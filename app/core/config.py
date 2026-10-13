@@ -90,12 +90,17 @@ class Settings:
         def get(name: str, default: str) -> str:
             return source.get(name, default).strip()
 
-        base_url = _origin("APP_BASE_URL", get("APP_BASE_URL", "http://localhost:8000"))
+        # Render provides the canonical HTTPS URL at runtime. Keeping this as a
+        # fallback lets OAuth work after registering the generated callback URL.
+        base_url = _origin(
+            "APP_BASE_URL",
+            get("APP_BASE_URL", get("RENDER_EXTERNAL_URL", "http://localhost:8000")),
+        )
         callback = _callback(
             "GOOGLE_REDIRECT_URI",
             get(
                 "GOOGLE_REDIRECT_URI",
-                "http://localhost:8000/api/v1/auth/google/callback",
+                f"{base_url}/api/v1/auth/google/callback",
             ),
             base_url,
         )

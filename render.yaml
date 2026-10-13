@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nexo-market-demo
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////app/data/nexo-market.db
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+      - key: OPENAI_API_KEY
+        sync: false
