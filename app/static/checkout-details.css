@@ -1,0 +1,20 @@
+.checkout-details { display: grid; gap: 1.5rem; }
+.checkout-details__intro h2 { margin: .25rem 0 .5rem; }
+.checkout-details__intro p:last-child { color: var(--color-muted, #536079); }
+.checkout-form { display: grid; gap: 1.25rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--color-border, #d9dee8); border-radius: 1rem; background: var(--color-surface, #fff); }
+.checkout-form__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.checkout-field { display: grid; align-content: start; gap: .45rem; color: var(--color-text, #172033); font-weight: 600; }
+.checkout-field--wide { grid-column: 1 / -1; }
+.checkout-field small { color: var(--color-muted, #536079); font-weight: 400; }
+.checkout-field input { width: 100%; min-height: 2.9rem; padding: .65rem .75rem; border: 1px solid var(--color-border, #b9c1ce); border-radius: .55rem; color: inherit; font: inherit; }
+.checkout-field input:focus-visible { outline: 3px solid var(--color-focus, #9a6700); outline-offset: 2px; border-color: var(--color-primary, #155eef); }
+.checkout-field input[aria-invalid="true"] { border-color: #b42318; }
+.checkout-field__readonly { min-height: 2.9rem; padding: .7rem .75rem; border: 1px solid var(--color-border, #d9dee8); border-radius: .55rem; background: #f6f8fb; overflow-wrap: anywhere; }
+.checkout-field__error, .checkout-form__error { color: #b42318; font-size: .9rem; }
+.checkout-form__error { margin: 0; padding: .8rem 1rem; border-radius: .5rem; background: #fff1f0; }
+.checkout-form__actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; padding-top: .5rem; }
+@media (max-width: 42rem) { .checkout-form__grid { grid-template-columns: 1fr; } .checkout-field--wide { grid-column: auto; } .checkout-form__actions { flex-direction: column-reverse; } .checkout-form__actions .button { width: 100%; text-align: center; } }
+.checkout-payment { padding: 1rem 1.25rem; border: 1px solid var(--color-border, #d9dee8); border-left: .3rem solid var(--color-primary, #155eef); border-radius: .75rem; background: var(--color-surface, #fff); }
+.checkout-payment h3 { margin: .25rem 0 .5rem; }
+.checkout-payment p { margin: .35rem 0; }
+.checkout-payment__help { color: var(--color-muted, #536079); font-size: .95rem; }

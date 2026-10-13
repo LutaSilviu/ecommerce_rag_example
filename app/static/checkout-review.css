@@ -1,0 +1,20 @@
+.checkout-review { display: grid; gap: 1.25rem; }
+.checkout-review__intro h2 { margin: .25rem 0 .5rem; }
+.checkout-review__section, .checkout-review__summary, .checkout-review__payment, .checkout-review__problem { padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--color-border, #d9dee8); border-radius: 1rem; background: var(--color-surface, #fff); }
+.checkout-review__section h3, .checkout-review__summary h3 { margin: 0 0 1rem; }
+.checkout-review__items { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.checkout-review__item { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto; align-items: center; gap: .9rem; padding: .75rem 0; border-top: 1px solid var(--color-border, #e5e9f0); }
+.checkout-review__image { width: 4.5rem; height: 4.5rem; object-fit: cover; border-radius: .6rem; background: #f3f5f8; }
+.checkout-review__item-detail { display: grid; gap: .3rem; }
+.checkout-review__item-name { color: var(--color-text, #172033); font-weight: 700; text-decoration: none; }
+.checkout-review__item-name:hover { text-decoration: underline; }
+.checkout-review__address p { margin: .2rem 0; }
+.checkout-review__summary-row { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; }
+.checkout-review__summary-row--total { margin-top: .3rem; padding-top: 1rem; border-top: 1px solid var(--color-border, #d9dee8); font-size: 1.1rem; }
+.checkout-review__payment { border-left: .3rem solid var(--color-primary, #155eef); }
+.checkout-review__payment h3 { margin: 0 0 .5rem; }
+.checkout-review__payment p { margin: 0; }
+.checkout-review__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; }
+.checkout-review__payment-note { flex-basis: 100%; margin: 0; color: var(--color-muted, #536079); }
+.checkout-review__problem { display: grid; gap: .75rem; }
+@media (max-width: 42rem) { .checkout-review__item { grid-template-columns: 3.5rem minmax(0, 1fr); } .checkout-review__image { width: 3.5rem; height: 3.5rem; } .checkout-review__item > strong { grid-column: 2; } .checkout-review__actions { align-items: stretch; flex-direction: column; } .checkout-review__actions .button { width: 100%; text-align: center; } }

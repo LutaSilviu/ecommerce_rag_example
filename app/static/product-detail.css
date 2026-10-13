@@ -1,0 +1,44 @@
+.product-detail { display: none; }
+body[data-page="product"] #page-content { display: none; }
+body[data-page="product"] .product-detail { display: block; }
+.product-detail__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap: clamp(28px, 5vw, 64px);
+  padding: clamp(20px, 4vw, 42px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+}
+.product-detail__image {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  min-height: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--color-surface-muted);
+}
+.product-detail__image--missing { visibility: hidden; }
+.product-detail__content { display: flex; flex-direction: column; align-items: flex-start; }
+.product-detail__category { margin-bottom: 10px; font-size: .9rem; font-weight: 650; text-decoration: none; }
+.product-detail__sku { margin: 0 0 18px; color: var(--color-text-muted); font-size: .85rem; }
+.product-detail__price { margin: 0 0 12px; font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; }
+.product-detail__availability { margin: 0 0 22px; font-weight: 650; }
+.product-detail__availability.is-available { color: #18753c; }
+.product-detail__availability.is-unavailable { color: var(--color-danger); }
+.product-detail__description { max-width: 62ch; margin: 0 0 28px; color: var(--color-text-muted); white-space: pre-line; }
+.product-detail__purchase { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: auto; }
+.product-detail__purchase label { font-weight: 650; }
+.product-detail__quantity { width: 76px; height: 46px; padding: 8px; border: 1px solid var(--color-border); border-radius: 8px; font: inherit; }
+.product-detail__feedback { margin: 12px 0 0; color: #18753c; font-size: .9rem; }
+.product-detail__feedback.is-error { color: var(--color-danger); }
+@media (max-width: 760px) {
+  .product-detail__layout { grid-template-columns: 1fr; gap: 24px; }
+  .product-detail__image { max-height: 420px; min-height: 240px; }
+}
+@media (max-width: 420px) {
+  .product-detail__purchase { align-items: stretch; flex-wrap: wrap; }
+  .product-detail__purchase .button { flex: 1; }
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#155eef">
+    <meta name="description" content="Nexo Market — magazin online pentru toate lucrurile de care ai nevoie.">
+    <title>{{PAGE_TITLE}} · Nexo Market</title>
+    <link rel="stylesheet" href="/static/site.css">
+    <link rel="stylesheet" href="/static/product-card.css">
+    <link rel="stylesheet" href="/static/status-state.css">
+    <link rel="stylesheet" href="/static/category-listing.css">
+    <link rel="stylesheet" href="/static/search-listing.css">
+    <link rel="stylesheet" href="/static/product-detail.css">
+    <link rel="stylesheet" href="/static/cart-page.css">
+    <link rel="stylesheet" href="/static/account-page.css">
+    <link rel="stylesheet" href="/static/route-guard.css">
+    <link rel="stylesheet" href="/static/checkout-details.css">
+    <link rel="stylesheet" href="/static/checkout-review.css">
+    <link rel="stylesheet" href="/static/order-pages.css">
+    <link rel="stylesheet" href="/static/product-chat.css">
+    <script src="/static/money.js" defer></script>
+    <script src="/static/auth-state.js" defer></script>
+    <script src="/static/route-guard.js" defer></script>
+    <script src="/static/cart-state.js" defer></script>
+    <script src="/static/cart-catalog.js" defer></script>
+    <script src="/static/cart-page.js" defer></script>
+    <script src="/static/product-card.js" defer></script>
+    <script src="/static/status-state.js" defer></script>
+    <script src="/static/home-catalog.js" defer></script>
+    <script src="/static/category-listing.js" defer></script>
+    <script src="/static/search-listing.js" defer></script>
+    <script src="/static/product-detail.js" defer></script>
+    <script src="/static/header.js" defer></script>
+    <script src="/static/account-page.js" defer></script>
+    <script src="/static/checkout-details.js" defer></script>
+    <script src="/static/checkout-review.js" defer></script>
+    <script src="/static/checkout-safeguards.js" defer></script>
+    <script src="/static/order-confirmation.js" defer></script>
+    <script src="/static/orders-history.js" defer></script>
+    <script src="/static/order-detail.js" defer></script>
+    <script src="/static/site.js" defer></script>
+    <script src="/static/product-chat.js" defer></script>
+  </head>
+  <body data-page="{{PAGE_KEY}}" data-route-auth="loading">
+    <a class="skip-link" href="#main-content">Sari la conținut</a>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="/" aria-label="Nexo Market — pagina principală">
+          <span class="brand-name">Nexo</span><span class="brand-kind">Market</span>
+        </a>
+        <button class="category-toggle" type="button" aria-expanded="false" aria-controls="category-navigation">
+          Categorii
+        </button>
+        <form class="search-form" action="/search" method="get" role="search">
+          <label class="visually-hidden" for="site-search">Caută produse</label>
+          <input id="site-search" name="q" type="search" placeholder="Ce cauți astăzi?">
+          <button class="button button--primary search-button" type="submit">Caută</button>
+        </form>
+        <nav class="utility-nav" aria-label="Navigare rapidă">
+          <a class="nav-link account-link" href="/login" data-account-link>Intră în cont</a>
+          <a class="nav-link cart-link" href="/cart" aria-label="Coș, 0 produse">
+            <span>Coș</span><span class="cart-count" aria-hidden="true" data-cart-count>0</span>
+          </a>
+        </nav>
+      </div>
+      <nav id="category-navigation" class="category-nav" aria-label="Categorii principale">
+        <div class="container category-nav-inner" data-category-links>
+          <a href="/">Acasă</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container page-main">
+      <section class="route-auth-loading" data-route-auth-loading role="status" aria-live="polite" aria-busy="true" hidden>
+        <span class="route-auth-loading__spinner" aria-hidden="true"></span>
+        <div><h2>Se verifică sesiunea</h2><p>Încărcăm pagina în siguranță.</p></div>
+      </section>
+      <p class="eyebrow">Nexo Market</p>
+      <h1>{{PAGE_TITLE}}</h1>
+      <section id="page-content" class="placeholder-card" aria-labelledby="placeholder-heading">
+        <div class="placeholder-mark" aria-hidden="true">N</div>
+        <div>
+          <h2 id="placeholder-heading">Suntem la început</h2>
+          <p>{{PAGE_SUBTITLE}}</p>
+          <a class="button button--secondary" href="/">Înapoi la pagina principală</a>
+        </div>
+      </section>
+
+      <section class="product-detail" data-product-detail aria-live="polite" aria-busy="true">
+        <div class="product-detail__state" data-product-detail-state></div>
+      </section>
+
+      <section class="cart-page" data-cart-page aria-labelledby="cart-page-title" aria-busy="true">
+        <div class="cart-page__heading">
+          <div>
+            <p class="eyebrow">Coșul tău</p>
+            <h2 id="cart-page-title" tabindex="-1">Produsele alese</h2>
+          </div>
+          <a class="text-link" href="/search">Continuă cumpărăturile <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="cart-page__layout">
+          <div class="cart-page__items" data-cart-items aria-live="polite" aria-relevant="additions removals text">
+            <p class="cart-page__loading" data-cart-loading>Se încarcă produsele din coș…</p>
+          </div>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h3 id="cart-summary-title">Sumar comandă</h3>
+            <div class="cart-summary__row"><span>Subtotal</span><strong data-cart-subtotal>—</strong></div>
+            <div class="cart-summary__row"><span>Livrare</span><span data-cart-delivery>Neconfigurată în acest prototip</span></div>
+            <div class="cart-summary__row cart-summary__total"><span>Total produse</span><strong data-cart-total>—</strong></div>
+            <p class="cart-summary__note">Comanda și plata sunt demonstrative. Nu se retrag bani.</p>
+            <a class="button button--primary cart-summary__checkout" data-cart-checkout href="/checkout/details" aria-disabled="true">Continuă către checkout</a>
+            <a class="cart-summary__continue" href="/">Înapoi la cumpărături</a>
+          </aside>
+        </div>
+        <template data-cart-line-template>
+          <article class="cart-line" data-cart-line>
+            <a class="cart-line__image-link" data-cart-product-link href="#">
+              <img class="cart-line__image" data-cart-image alt="" loading="lazy">
+            </a>
+            <div class="cart-line__details">
+              <a class="cart-line__title" data-cart-title href="#"></a>
+              <p class="cart-line__meta" data-cart-category></p>
+              <p class="cart-line__availability" data-cart-availability></p>
+              <button class="cart-line__remove" data-cart-remove type="button">Elimină</button>
+            </div>
+            <div class="cart-line__unit-price"><span class="cart-line__label">Preț unitar</span><strong data-cart-unit-price></strong></div>
+            <div class="cart-quantity" aria-label="Cantitate">
+              <button class="cart-quantity__button" data-cart-quantity-decrease type="button" aria-label="Scade cantitatea">−</button>
+              <input class="cart-quantity__input" data-cart-quantity-input type="number" min="1" max="99" inputmode="numeric" aria-label="Cantitate produs">
+              <button class="cart-quantity__button" data-cart-quantity-increase type="button" aria-label="Crește cantitatea">+</button>
+            </div>
+            <div class="cart-line__total"><span class="cart-line__label">Valoare</span><strong data-cart-line-total></strong></div>
+          </article>
+        </template>
+        <div class="cart-empty" data-cart-empty-state hidden>
+          <span class="cart-empty__icon" aria-hidden="true">▢</span>
+          <h3>Coșul tău este gol</h3>
+          <p>Coșul este pregătit pentru produsele tale. Explorează catalogul sau alege o categorie.</p>
+          <a class="button button--primary" href="/search">Descoperă toate produsele</a>
+          <nav class="cart-empty__categories" aria-label="Explorează categoriile">
+            <a href="/category/electronics">Electronice</a>
+            <a href="/category/home">Casă și grădină</a>
+            <a href="/category/fashion">Modă</a>
+            <a href="/category/personal-care">Îngrijire personală</a>
+          </nav>
+        </div>
+      </section>
+
+      <div class="storefront-home" data-storefront-home>
+        <section class="storefront-hero" aria-labelledby="storefront-hero-title">
+          <div class="storefront-hero__content">
+            <p class="storefront-hero__eyebrow">Descoperă Nexo Market</p>
+            <h2 id="storefront-hero-title">Lucrurile bune pentru fiecare zi.</h2>
+            <p>Tehnologie, idei pentru casă și produse care îți fac rutina mai ușoară — toate într-un singur loc.</p>
+            <a class="button button--primary" href="#produse-populare">Descoperă produsele</a>
+          </div>
+          <div class="storefront-hero__art" aria-hidden="true">
+            <span class="hero-orbit hero-orbit--one"></span>
+            <span class="hero-orbit hero-orbit--two"></span>
+            <span class="hero-art-label">NEXO<br><strong>market</strong></span>
+            <span class="hero-art-dot hero-art-dot--one"></span>
+            <span class="hero-art-dot hero-art-dot--two"></span>
+          </div>
+        </section>
+
+        <section class="storefront-discovery" aria-labelledby="discovery-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Alege ce ți se potrivește</p>
+              <h2 id="discovery-title">Explorează categoriile</h2>
+            </div>
+          </div>
+          <div class="discovery-grid">
+            <a class="discovery-tile discovery-tile--electronics" href="/category/electronics">
+              <span class="discovery-tile__icon" aria-hidden="true">✦</span>
+              <span class="discovery-tile__copy"><strong>Electronice</strong><span>Tehnologie pentru zi de zi</span></span>
+              <span class="discovery-tile__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="discovery-tile discovery-tile--home" href="/category/home">
+              <span class="discovery-tile__icon" aria-hidden="true">⌂</span>
+              <span class="discovery-tile__copy"><strong>Casă</strong><span>Detalii care fac diferența</span></span>
+              <span class="discovery-tile__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="discovery-tile discovery-tile--fashion" href="/category/fashion">
+              <span class="discovery-tile__icon" aria-hidden="true">◈</span>
+              <span class="discovery-tile__copy"><strong>Modă</strong><span>Stilul tău, în fiecare zi</span></span>
+              <span class="discovery-tile__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="discovery-tile discovery-tile--care" href="/category/personal-care">
+              <span class="discovery-tile__icon" aria-hidden="true">✿</span>
+              <span class="discovery-tile__copy"><strong>Îngrijire personală</strong><span>Un moment doar pentru tine</span></span>
+              <span class="discovery-tile__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <section id="produse-populare" class="storefront-products" aria-labelledby="popular-products-title">
+          <div class="section-heading section-heading--products">
+            <div>
+              <p class="eyebrow">Selecția Nexo</p>
+              <h2 id="popular-products-title">Produse populare</h2>
+              <p class="section-heading__description">Descoperă produse alese din toate categoriile.</p>
+            </div>
+            <a class="text-link" href="/search">Vezi toate produsele <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="storefront-product-grid" data-home-product-grid aria-live="polite">
+            <p class="storefront-products__placeholder">Se pregătește selecția de produse…</p>
+          </div>
+        </section>
+
+        <section class="storefront-promise" aria-label="Despre Nexo Market">
+          <span class="storefront-promise__mark" aria-hidden="true">N</span>
+          <div><h2>Cumpărături simple, într-un singur loc.</h2><p>Explorează colecția Nexo Market și găsește inspirație pentru fiecare zi.</p></div>
+          <a class="button button--secondary" href="/search">Începe să explorezi</a>
+        </section>
+      </div>
+
+      <section class="category-listing" data-category-listing aria-labelledby="category-listing-title">
+        <div class="category-listing__intro">
+          <p class="eyebrow">Descoperă colecția</p>
+          <h2 id="category-listing-title" data-category-title></h2>
+          <p data-category-description></p>
+        </div>
+        <div class="category-listing__grid" data-category-product-grid aria-live="polite"></div>
+      </section>
+
+      <section class="search-listing" data-search-listing aria-labelledby="search-listing-title">
+        <div class="search-listing__intro">
+          <p class="eyebrow">Catalog Nexo Market</p>
+          <h2 id="search-listing-title" data-search-title>Toate produsele</h2>
+          <p class="search-listing__count" data-search-count aria-live="polite"></p>
+        </div>
+        <div class="search-listing__grid" data-search-product-grid aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand brand--footer" href="/" aria-label="Nexo Market — pagina principală">
+          <span class="brand-name">Nexo</span><span class="brand-kind">Market</span>
+        </a>
+        <p>Tot ce-ți trebuie, într-un singur loc.</p>
+      </div>
+      <div class="container footer-bottom"><span>© Nexo Market</span><span>Un magazin demonstrativ</span></div>
+    </footer>
+    <button class="product-chat-launcher" type="button" aria-haspopup="dialog" aria-controls="product-chat-dialog" aria-label="Deschide chatul Nexo Market">
+      <span aria-hidden="true">✦</span><span>Întreabă-ne</span>
+    </button>
+    <dialog class="product-chat" id="product-chat-dialog" aria-labelledby="product-chat-title">
+      <div class="product-chat__header">
+        <div><span class="product-chat__eyebrow">Asistent de produse</span><h2 id="product-chat-title">Chat Nexo</h2></div>
+        <button class="product-chat__close" type="button" aria-label="Închide chatul">×</button>
+      </div>
+      <p class="product-chat__notice">Răspund doar pe baza produselor din catalogul nostru.</p>
+      <div class="product-chat__messages" role="log" aria-live="polite" aria-relevant="additions text">
+        <p class="product-chat__bubble product-chat__bubble--assistant">Bună! Te pot ajuta cu detalii, prețuri, stoc sau recomandări din catalog.</p>
+      </div>
+      <form class="product-chat__form">
+        <label class="visually-hidden" for="product-chat-input">Întrebarea ta despre produse</label>
+        <textarea id="product-chat-input" name="message" rows="2" maxlength="1000" placeholder="Întreabă despre produse…" required></textarea>
+        <button class="button button--primary" type="submit">Trimite</button>
+      </form>
+      <p class="product-chat__status" role="status" aria-live="polite"></p>
+    </dialog>
+  </body>
+</html>

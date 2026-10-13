@@ -1,0 +1,84 @@
+/* Standalone status components; tokens fall back when used without site.css. */
+.status-state {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--color-border, #d7dee8);
+  border-radius: 12px;
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #17212f);
+}
+
+.status-state__icon {
+  display: inline-grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-brand-soft, #eaf1ff);
+  color: var(--color-brand, #155eef);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.status-state__content { min-width: 0; }
+
+.status-state__title {
+  margin: 1px 0 4px;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.status-state__message {
+  margin: 0;
+  color: var(--color-text-muted, #536174);
+  font-size: .9375rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.status-state__action {
+  flex: 0 0 auto;
+  min-height: 44px;
+  margin-left: auto;
+}
+
+.status-state--loading .status-state__icon {
+  border: 3px solid var(--color-brand-soft, #eaf1ff);
+  border-top-color: var(--color-brand, #155eef);
+  background: transparent;
+  color: transparent;
+  animation: nexo-status-spin .8s linear infinite;
+}
+
+.status-state--empty { background: var(--color-surface-muted, #eef2f6); }
+
+.status-state--error {
+  border-color: var(--color-danger, #b42318);
+  background: var(--color-danger-soft, #fef0ee);
+  color: var(--color-danger, #b42318);
+}
+
+.status-state--error .status-state__icon {
+  background: var(--color-surface, #fff);
+  color: var(--color-danger, #b42318);
+}
+
+.status-state--error .status-state__message { color: var(--color-text, #17212f); }
+
+@keyframes nexo-status-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 599px) {
+  .status-state { flex-wrap: wrap; padding: 16px; }
+  .status-state__action { width: 100%; margin-left: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-state--loading .status-state__icon { animation: none; }
+}
